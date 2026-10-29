@@ -1,0 +1,12 @@
+2026-10-29T10:15:00Z INFO [gateway] Starting health check
+2026-10-29T10:15:01Z INFO [gateway] Connecting to upstream
+2026-10-29T10:15:03Z ERROR [gateway] Connection timeout
+2026-10-29T10:15:04Z INFO [gateway] Retrying connection
+2026-10-29T10:15:12Z ERROR [gateway] Connection timeout
+2026-10-29T10:15:20Z ERROR [gateway] Connection timeout
+2026-10-29T10:15:21Z WARNING [gateway] Upstream is responding slowly
+2026-10-29T10:15:35Z ERROR [gateway] Connection timeout
+2026-10-29T10:15:50Z ERROR [gateway] Connection timeout
+2026-10-29T10:15:55Z INFO [gateway] Connection established
+2026-10-29T10:16:02Z INFO [gateway] Health check passed
+malformed example: timestamp missing

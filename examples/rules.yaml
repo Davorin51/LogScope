@@ -1,0 +1,9 @@
+version: 1
+rules:
+  - id: timeout_burst
+    description: At least five gateway timeouts within one minute
+    contains: timeout
+    levels: [ERROR, CRITICAL]
+    component: gateway
+    threshold: 5
+    window_seconds: 60
