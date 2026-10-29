@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>LogScope · Analysis report</title><style>
+:root{color-scheme:dark;--bg:#10171d;--panel:#19242d;--muted:#9eb0bd;--ink:#edf5f8;--accent:#63e6be}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,sans-serif}
+main{max-width:1200px;margin:auto;padding:48px 28px}header{border-bottom:1px solid #31434f;padding-bottom:30px}
+.brand{color:var(--accent);letter-spacing:.18em;font-size:13px;font-weight:700}h1{font-size:42px;margin:8px 0}h2{margin-top:36px}
+.muted,small{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
+.card,article{background:var(--panel);padding:20px;border:1px solid #2c3d49;border-radius:12px}.card strong{display:block;font-size:34px}
+.pill,.tag{display:inline-block;background:#243b43;padding:5px 10px;border-radius:6px;margin:4px;color:var(--accent)}
+table{width:100%;border-collapse:collapse;background:var(--panel)}th,td{padding:12px;text-align:left;border-bottom:1px solid #30424f;overflow-wrap:anywhere}
+th{color:var(--muted)}.bar{height:10px;min-width:2px;background:var(--accent);border-radius:4px}article{margin-bottom:14px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace;margin:6px 0}.error{color:#ffb3b3;background:#40262e;padding:10px;border-radius:5px}
+.details{overflow:auto}ul{overflow-wrap:anywhere}footer{margin-top:40px;border-top:1px solid #31434f;padding-top:20px;color:var(--muted)}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}main{padding:24px 14px}h1{font-size:32px}}
+</style></head><body><main><header><div class="brand">LOGSCOPE / LOCAL ANALYSIS</div>
+<h1>From events to evidence.</h1><p class="muted">A chronological view of your logs. All displayed times are UTC.</p>
+<small>${first_timestamp} → ${last_timestamp}</small></header>
+<section class="cards"><div class="card">Selected events<strong>${selected_events}</strong></div>
+<div class="card">Errors / critical<strong>${errors}</strong></div><div class="card">Rule incidents<strong>${total_findings}</strong></div>
+<div class="card">Malformed lines<strong>${malformed_lines}</strong></div></section><div>${levels}</div>
+<h2>Timeline</h2><p class="muted">Showing ${timeline_shown} of ${timeline_total} UTC minute buckets.</p>
+<div class="details"><table><thead><tr><th>Minute</th><th>Volume</th><th>Events</th><th>Errors</th></tr></thead><tbody>${timeline}</tbody></table></div>
+<h2>Rule incidents</h2><p class="muted">Showing ${findings_shown} of ${findings_total}. Repeated matches are grouped into active episodes.</p>
+${findings}
+<h2>Most frequent errors</h2><p class="muted">Showing ${issues_shown} of ${issues_total} distinct exact-message groups.</p>
+<div class="details"><table><thead><tr><th>Count</th><th>Level</th><th>Component</th><th>Message</th></tr></thead><tbody>${issues}</tbody></table></div>
+<h2>Surrounding events</h2><p class="muted">First ${contexts_shown} selected error events; up to two selected parsed events before and after in the same source file.</p>${contexts}
+<details><summary>Input quality · ${malformed_count} malformed lines</summary><p>Showing ${diagnostics_shown} diagnostic samples.</p><ul>${diagnostics}</ul></details>
+<details><summary>Sources and filters</summary><ul>${sources}</ul><pre>${filters}</pre>
+<p>${line_count} lines · ${blank_count} blank · ${parsed_count} parsed · ${selected_count} selected.</p></details>
+<footer>LogScope 0.1.0 · No external assets or network requests. Nearby events and rule matches do not establish root cause.</footer>
+</main></body></html>

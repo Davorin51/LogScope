@@ -9,5 +9,5 @@ htmlcov/
 build/
 dist/
 *.egg-info/
-report.html
-report.json
+/report.html
+/report.json
